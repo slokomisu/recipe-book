@@ -1,0 +1,7 @@
+export const START_FETCHING_RECIPES = 'recipes/start_fetch'
+export const RECIPES_FETCH_SUCCESSFUL = 'recipes/successful_fetch'
+export const RECIPES_FETCH_FAILED = 'recipes/failed_fetch'
+export const UPDATE_RECIPES = 'recipes/update'
+export const ADD_RECIPE = 'recipes/add'
+export const DELETE_RECIPE = 'recipes/delete'
+export const SELECT_RECIPE = 'recipes/select'
