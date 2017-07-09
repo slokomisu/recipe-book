@@ -1,6 +1,6 @@
 import * as types from './constants'
 import firebase from '../firebase'
-import { goBack } from 'react-router-redux'
+import { push } from 'react-router-redux'
 
 export const addRecipe = (recipe) => {
   return {
@@ -97,7 +97,7 @@ export const updateRecipe = (recipe) => {
     recipeRef.update(recipe)
       .then(() => {
         dispatch(recipeUpdateFinish(recipe))
-        dispatch(goBack())
+        dispatch(push('./'))
       })
       .catch(() => {
         dispatch(recipeUpdateError())

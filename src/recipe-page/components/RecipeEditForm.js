@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Container, Button, Form, Divider, Image } from 'semantic-ui-react'
 import { reduxForm, Field, FieldArray, formValueSelector } from 'redux-form'
@@ -9,12 +8,6 @@ import Loading from '../../shared/Loading'
 import SemanticUiField from '../../shared/SemanticUiField'
 
 class RecipeEditForm extends Component {
-
-  componentWillMount () {
-    const { id } = this.props;
-    this.props.fetchRecipe(id)
-  }
-
 
   cancelEdit = () => {
     this.props.goBack()
@@ -85,11 +78,10 @@ const ConnectedForm = reduxForm({
 
 const selector = formValueSelector('recipeEdit');
 
-function mapStateToProps (state) {
-  const { selectedRecipe } = state.recipes;
+function mapStateToProps (state, ownProps) {
+  const { selectedRecipe } = ownProps;
   if (selectedRecipe) {
     return {
-      selectedRecipe: selectedRecipe,
       initialValues: {
         ...selectedRecipe
       },
@@ -103,4 +95,4 @@ function mapStateToProps (state) {
 }
 
 
-export default connect(mapStateToProps, {goBack, fetchRecipe})(ConnectedForm)
+export default connect(mapStateToProps, {goBack})(ConnectedForm)

@@ -39,12 +39,21 @@ class RecipeDetail extends Component {
         <Card.Content extra>
           <div className='ui three buttons'>
             <Button basic color='blue'>To Shopping List</Button>
-            <Button basic color='green' as={Link} to={`${this.props.match.params.id}/edit`}>Edit</Button>
+            <Button basic color='green' as={Link} to={this.editUrl()}>Edit</Button>
             <Button basic color='red'>Delete</Button>
           </div>
         </Card.Content>
       </Card>
     )
+  }
+
+  // Hack to make the edit url work every time
+  editUrl = () => {
+    if (this.props.match.url.slice(-1) === '/') {
+      return this.props.match.url.slice(0, this.props.match.url.length - 1) + '/edit'
+    } else {
+      return this.props.match.url + '/edit'
+    }
   }
 }
 

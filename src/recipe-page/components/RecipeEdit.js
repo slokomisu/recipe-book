@@ -2,10 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Container, Header } from 'semantic-ui-react'
 import RecipeEditForm from './RecipeEditForm'
-import { updateRecipe } from '../../actions/index'
+import { updateRecipe, fetchRecipe } from '../../actions/index'
 import { connect } from 'react-redux'
 
 class RecipeEdit extends Component {
+
+  componentWillMount () {
+    this.props.fetchRecipe(this.props.match.params.id)
+  }
 
   handleSubmit = (values) => {
     this.props.updateRecipe(values);
@@ -17,13 +21,20 @@ class RecipeEdit extends Component {
         <Header >
           Recipe Edit
         </Header>
-        <RecipeEditForm onSubmit={this.handleSubmit} id={this.props.match.params.id}/>
+        <RecipeEditForm onSubmit={this.handleSubmit} selectedRecipe={this.props.selectedRecipe}/>
       </Container>
     )
   }
 }
 
+function mapStateToProps (state) {
+  const { selectedRecipe } = state.recipes;
+  return {
+    selectedRecipe
+  };
+}
+
 RecipeEdit.propTypes = {}
 RecipeEdit.defaultProps = {}
 
-export default connect(null, { updateRecipe })(RecipeEdit);
+export default connect(mapStateToProps, { updateRecipe, fetchRecipe })(RecipeEdit);
