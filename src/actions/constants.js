@@ -5,3 +5,6 @@ export const UPDATE_RECIPES = 'recipes/update'
 export const ADD_RECIPE = 'recipes/add'
 export const DELETE_RECIPE = 'recipes/delete'
 export const SELECT_RECIPE = 'recipes/select'
+export const START_RECIPE_UPDATE = 'recipes/start_update'
+export const RECIPE_UPDATED = 'recipe/recipe_updated';
+export const RECIPE_UPDATE_ERROR = 'recipe/recipe_update_error';

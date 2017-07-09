@@ -8,9 +8,6 @@ import IngredientList from './IngredientList'
 import { Link } from 'react-router-dom'
 
 class RecipeDetail extends Component {
-  state = {
-    editing: false
-  }
 
   componentWillMount () {
     const {id} = this.props.match.params

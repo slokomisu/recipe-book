@@ -1,5 +1,6 @@
 import * as types from './constants'
 import firebase from '../firebase'
+import { goBack } from 'react-router-redux'
 
 export const addRecipe = (recipe) => {
   return {
@@ -69,6 +70,42 @@ export const fetchRecipe = (recipeId) => {
       })
   }
 }
+
+function recipeUpdateStart () {
+  return {
+    type: types.START_RECIPE_UPDATE
+  }
+}
+
+function recipeUpdateFinish (recipe) {
+  return {
+    type: types.RECIPE_UPDATED,
+    recipe
+  }
+}
+
+function recipeUpdateError () {
+  return {
+    type: types.RECIPE_UPDATE_ERROR
+  }
+}
+
+export const updateRecipe = (recipe) => {
+  return function (dispatch) {
+    dispatch(recipeUpdateStart())
+    const recipeRef = firebase.database().ref(`/recipes/${recipe.id}`)
+    recipeRef.update(recipe)
+      .then(() => {
+        dispatch(recipeUpdateFinish(recipe))
+        dispatch(goBack())
+      })
+      .catch(() => {
+        dispatch(recipeUpdateError())
+      })
+  }
+}
+
+
 
 
 

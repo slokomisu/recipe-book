@@ -12,6 +12,7 @@ import RecipeEdit from './components/RecipeEdit'
 
 class RecipePage extends Component {
 
+
   componentWillMount () {
     this.props.fetchRecipes()
   }

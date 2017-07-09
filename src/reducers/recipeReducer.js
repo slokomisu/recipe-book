@@ -5,7 +5,9 @@ const initialState = {
   isFetching: true,
   fetchFailed: false,
   recipes: {},
-  selectedRecipeId: null
+  selectedRecipeId: null,
+  recipeUpdating: false,
+  recipeUpdateError: false
 }
 
 export default function (state = initialState, action) {
@@ -18,10 +20,15 @@ export default function (state = initialState, action) {
       return {...state, isFetching: false, fetchFailed: true}
     case types.ADD_RECIPE:
       const currentRecipes = state.recipes
-      // return {...state, recipes: [...currentRecipes, action.recipe]};
       return {...state, recipes: {...currentRecipes, [action.recipe.id]: action.recipe}}
     case types.SELECT_RECIPE:
       return {...state, selectedRecipe: action.recipe}
+    case types.START_RECIPE_UPDATE:
+      return {...state, recipeUpdating: true}
+    case types.RECIPE_UPDATED:
+      return {...state, recipeUpdating: false, [action.recipe.id]: action.recipe};
+    case types.RECIPE_UPDATE_ERROR:
+      return {...state, recipeUpdating: false, recipeUpdateError: true};
     default:
       return state
   }
