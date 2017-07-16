@@ -49,7 +49,11 @@ export const fetchRecipes = () => {
 
 export const receiveRecipes = (recipes) => {
   return function (dispatch) {
-    recipes.forEach(recipe => dispatch(addRecipe(recipe)))
+    if (recipes.constructor === Array) {
+      recipes.forEach(recipe => dispatch(addRecipe(recipe)))
+    } else {
+      dispatch(addRecipe(recipes));
+    }
     dispatch(receivedRecipes())
   }
 }
@@ -101,6 +105,41 @@ export const updateRecipe = (recipe) => {
       })
       .catch(() => {
         dispatch(recipeUpdateError())
+      })
+  }
+}
+
+
+function recipeDeleteStart () {
+  return {
+    type: types.RECIPE_DELETE_START
+  }
+}
+
+function recipeDeleteFinish (recipe) {
+  return {
+    type: types.RECIPE_DELETED,
+    recipe
+  }
+}
+
+function recipeDeleteError () {
+  return {
+    type: types.RECIPE_DELETE_ERROR
+  }
+}
+
+export const deleteRecipe = (recipe) => {
+  return function (dispatch) {
+    dispatch(recipeDeleteStart())
+    const recipeRef = firebase.database().ref(`/recipes/${recipe.id}`);
+    recipeRef.remove()
+      .then(() => {
+        dispatch(recipeDeleteFinish(recipe));
+        dispatch(push('./'))
+      })
+      .catch(() => {
+        dispatch(recipeDeleteError())
       })
   }
 }

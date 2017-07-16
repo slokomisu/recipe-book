@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchRecipe } from '../../actions/index'
+import { fetchRecipe, deleteRecipe } from '../../actions/index'
 import Loading from '../../shared/Loading'
 import { Button, Card, Image } from 'semantic-ui-react'
 import IngredientList from './IngredientList'
@@ -12,6 +12,10 @@ class RecipeDetail extends Component {
   componentWillMount () {
     const {id} = this.props.match.params
     this.props.fetchRecipe(id)
+  }
+
+  handleDelete = () => {
+    this.props.deleteRecipe(this.props.selectedRecipe);
   }
 
   render () {
@@ -40,7 +44,7 @@ class RecipeDetail extends Component {
           <div className='ui three buttons'>
             <Button basic color='blue'>To Shopping List</Button>
             <Button basic color='green' as={Link} to={this.editUrl()}>Edit</Button>
-            <Button basic color='red'>Delete</Button>
+            <Button basic color='red' onClick={this.handleDelete}>Delete</Button>
           </div>
         </Card.Content>
       </Card>
@@ -63,5 +67,5 @@ function mapStateToProps ({recipes: {selectedRecipe}}) {
   }
 }
 
-export default connect(mapStateToProps, {fetchRecipe})(RecipeDetail)
+export default connect(mapStateToProps, {fetchRecipe, deleteRecipe})(RecipeDetail)
 

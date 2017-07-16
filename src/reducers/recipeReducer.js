@@ -1,5 +1,5 @@
 import * as types from '../actions/constants'
-import { mapKeys } from 'lodash'
+import { omit } from 'lodash'
 
 const initialState = {
   isFetching: true,
@@ -7,6 +7,8 @@ const initialState = {
   recipes: {},
   selectedRecipeId: null,
   recipeUpdating: false,
+  recipeDeleting: false,
+  recipeDeleteError: false,
   recipeUpdateError: false
 }
 
@@ -29,6 +31,13 @@ export default function (state = initialState, action) {
       return {...state, recipeUpdating: false, [action.recipe.id]: action.recipe};
     case types.RECIPE_UPDATE_ERROR:
       return {...state, recipeUpdating: false, recipeUpdateError: true};
+    case types.RECIPE_DELETE_START:
+      return {...state, recipeDeleting: true}
+    case types.RECIPE_DELETED:
+      const newState = omit(state, [`recipes.${action.recipe.id}`]);
+      return {...newState, recipeDeleting: false};
+    case types.RECIPE_DELETE_ERROR:
+      return {...state, recipeDeleting: false, recipeDeleteError: true}
     default:
       return state
   }

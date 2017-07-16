@@ -1,10 +1,11 @@
 export const START_FETCHING_RECIPES = 'recipes/start_fetch'
 export const RECIPES_FETCH_SUCCESSFUL = 'recipes/successful_fetch'
 export const RECIPES_FETCH_FAILED = 'recipes/failed_fetch'
-export const UPDATE_RECIPES = 'recipes/update'
 export const ADD_RECIPE = 'recipes/add'
-export const DELETE_RECIPE = 'recipes/delete'
 export const SELECT_RECIPE = 'recipes/select'
 export const START_RECIPE_UPDATE = 'recipes/start_update'
 export const RECIPE_UPDATED = 'recipe/recipe_updated';
-export const RECIPE_UPDATE_ERROR = 'recipe/recipe_update_error';
+export const RECIPE_UPDATE_ERROR = 'recipe/update_error';
+export const RECIPE_DELETE_START = 'recipe/start_delete'
+export const RECIPE_DELETED = 'recipe/deleted';
+export const RECIPE_DELETE_ERROR = 'recipe/delete_error';
