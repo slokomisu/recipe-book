@@ -129,6 +129,40 @@ function recipeDeleteError () {
   }
 }
 
+export const createRecipe = (newRecipe) => {
+  return function (dispatch) {
+    dispatch(recipeCreateStart())
+    const recipesRef = firebase.database().ref('/recipes');
+    recipesRef.push(newRecipe)
+      .then(() => {
+        dispatch(recipeCreated(newRecipe));
+      })
+      .catch((err) => {
+        dispatch(recipeCreateError(err));
+      })
+  }
+}
+
+export const recipeCreateStart = () => {
+  return {
+    type: types.RECIPE_CREATE_START
+  }
+}
+
+export const recipeCreated = newRecipe => {
+  return {
+    type: types.RECIPE_CREATE_SUCCESS,
+    newRecipe
+  }
+}
+
+export const recipeCreateError = err => {
+  return {
+    type: types.RECIPE_CREATE_ERROR,
+    err
+  }
+}
+
 export const deleteRecipe = (recipe) => {
   return function (dispatch) {
     dispatch(recipeDeleteStart())

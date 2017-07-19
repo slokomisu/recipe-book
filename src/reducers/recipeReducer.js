@@ -9,7 +9,9 @@ const initialState = {
   recipeUpdating: false,
   recipeDeleting: false,
   recipeDeleteError: false,
-  recipeUpdateError: false
+  recipeUpdateError: false,
+  recipeCreating: false,
+  recipeCreateError: null,
 }
 
 export default function (state = initialState, action) {
@@ -38,6 +40,13 @@ export default function (state = initialState, action) {
       return {...newState, recipeDeleting: false};
     case types.RECIPE_DELETE_ERROR:
       return {...state, recipeDeleting: false, recipeDeleteError: true}
+    case types.RECIPE_CREATE_START:
+      return {...state, recipeCreating: true}
+    case types.RECIPE_CREATE_SUCCESS:
+      const currentRecipes = state.recipes;
+      return {...state, recipeCreating: false, recipes: {...currentRecipes, [action.newRecipe.id]: action.newRecipe}}
+    case types.RECIPE_CREATE_ERROR:
+      return {...state, recipeCreating: false, recipeCreateError: true};
     default:
       return state
   }
