@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Container } from 'semantic-ui-react'
+import { Grid, Container, Button } from 'semantic-ui-react'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions/index'
@@ -11,7 +11,9 @@ import ErrorMessage from '../shared/ErrorMessage'
 import RecipeEdit from './components/RecipeEdit'
 
 class RecipePage extends Component {
-
+  constructor(props) {
+    super(props);
+  }
 
   componentWillMount () {
     this.props.fetchRecipes()
@@ -36,7 +38,12 @@ class RecipePage extends Component {
         <Grid columns={2} divided>
           <Grid.Row>
             <Grid.Column>
+              <Container>
+              <Button positive>
+                Add Recipe
+              </Button>
               <RecipeList recipes={recipes}/>
+              </Container>
             </Grid.Column>
             <Grid.Column>
               <Switch key={locationKey}>

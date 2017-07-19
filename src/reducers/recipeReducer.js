@@ -1,7 +1,7 @@
-import * as types from '../actions/constants'
+import * as types from '../actions/varants'
 import { omit } from 'lodash'
 
-const initialState = {
+var initialState = {
   isFetching: true,
   fetchFailed: false,
   recipes: {},
@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
     case types.RECIPES_FETCH_FAILED:
       return {...state, isFetching: false, fetchFailed: true}
     case types.ADD_RECIPE:
-      const currentRecipes = state.recipes
+      var currentRecipes = state.recipes
       return {...state, recipes: {...currentRecipes, [action.recipe.id]: action.recipe}}
     case types.SELECT_RECIPE:
       return {...state, selectedRecipe: action.recipe}
@@ -36,14 +36,14 @@ export default function (state = initialState, action) {
     case types.RECIPE_DELETE_START:
       return {...state, recipeDeleting: true}
     case types.RECIPE_DELETED:
-      const newState = omit(state, [`recipes.${action.recipe.id}`]);
+      var newState = omit(state, [`recipes.${action.recipe.id}`]);
       return {...newState, recipeDeleting: false};
     case types.RECIPE_DELETE_ERROR:
       return {...state, recipeDeleting: false, recipeDeleteError: true}
     case types.RECIPE_CREATE_START:
       return {...state, recipeCreating: true}
     case types.RECIPE_CREATE_SUCCESS:
-      const currentRecipes = state.recipes;
+      var currentRecipes = state.recipes;
       return {...state, recipeCreating: false, recipes: {...currentRecipes, [action.newRecipe.id]: action.newRecipe}}
     case types.RECIPE_CREATE_ERROR:
       return {...state, recipeCreating: false, recipeCreateError: true};

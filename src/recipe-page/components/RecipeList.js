@@ -11,16 +11,11 @@ class RecipeList extends Component {
     const {recipes} = this.props
 
     return (
-      <Container>
-        <Button positive>
-          Add Recipe
-        </Button>
         <Item.Group divided link unstackable>
           {map(recipes, recipe => {
             return <RecipeListItem recipe={recipe} key={recipe.id}/>
           })}
         </Item.Group>
-      </Container>
     )
   }
 }
