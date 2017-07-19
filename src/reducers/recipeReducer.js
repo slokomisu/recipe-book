@@ -1,4 +1,4 @@
-import * as types from '../actions/varants'
+import * as types from '../actions/constants'
 import { omit } from 'lodash'
 
 var initialState = {
