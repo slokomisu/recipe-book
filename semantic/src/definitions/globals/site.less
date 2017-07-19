@@ -8,12 +8,13 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
-@type: 'global';
-@element: 'site';
+@type    : 'global';
+@element : 'site';
 
 @import (multiple) '../../theme.config';
 
@@ -65,19 +66,15 @@ h1 {
   min-height: 1rem;
   font-size: @h1;
 }
-
 h2 {
   font-size: @h2;
 }
-
 h3 {
   font-size: @h3;
 }
-
 h4 {
   font-size: @h4;
 }
-
 h5 {
   font-size: @h5;
 }
@@ -98,6 +95,7 @@ h5:last-child {
   margin-bottom: 0em;
 }
 
+
 /*******************************
              Text
 *******************************/
@@ -106,11 +104,9 @@ p {
   margin: @paragraphMargin;
   line-height: @paragraphLineHeight;
 }
-
 p:first-child {
   margin-top: 0em;
 }
-
 p:last-child {
   margin-bottom: 0em;
 }
@@ -123,10 +119,53 @@ a {
   color: @linkColor;
   text-decoration: @linkUnderline;
 }
-
 a:hover {
   color: @linkHoverColor;
   text-decoration: @linkHoverUnderline;
+}
+
+
+/*******************************
+         Scrollbars
+*******************************/
+
+.addScrollbars() when (@useCustomScrollbars) {
+
+  /* Force Simple Scrollbars */
+  body ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: @customScrollbarWidth;
+  }
+  body ::-webkit-scrollbar-track {
+    background: @trackBackground;
+    border-radius: @trackBorderRadius;
+  }
+  body ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: @thumbBorderRadius;
+    background: @thumbBackground;
+    transition: @thumbTransition;
+  }
+  body ::-webkit-scrollbar-thumb:window-inactive {
+    background: @thumbInactiveBackground;
+  }
+  body ::-webkit-scrollbar-thumb:hover {
+    background: @thumbHoverBackground;
+  }
+
+  /* Inverted UI */
+  body .ui.inverted::-webkit-scrollbar-track {
+    background: @trackInvertedBackground;
+  }
+  body .ui.inverted::-webkit-scrollbar-thumb {
+    background: @thumbInvertedBackground;
+  }
+  body .ui.inverted::-webkit-scrollbar-thumb:window-inactive {
+    background: @thumbInvertedInactiveBackground;
+  }
+  body .ui.inverted::-webkit-scrollbar-thumb:hover {
+    background: @thumbInvertedHoverBackground;
+  }
 }
 
 /*******************************
@@ -138,12 +177,10 @@ a:hover {
   background-color: @highlightBackground;
   color: @highlightColor;
 }
-
 ::-moz-selection {
   background-color: @highlightBackground;
   color: @highlightColor;
 }
-
 ::selection {
   background-color: @highlightBackground;
   color: @highlightColor;
@@ -155,17 +192,16 @@ input::-webkit-selection {
   background-color: @inputHighlightBackground;
   color: @inputHighlightColor;
 }
-
 textarea::-moz-selection,
 input::-moz-selection {
   background-color: @inputHighlightBackground;
   color: @inputHighlightColor;
 }
-
 textarea::selection,
 input::selection {
   background-color: @inputHighlightBackground;
   color: @inputHighlightColor;
 }
 
+.addScrollbars();
 .loadUIOverrides();

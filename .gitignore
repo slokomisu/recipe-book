@@ -23,7 +23,7 @@ yarn-error.log*
 .idea/
 
 
-semantic
+/semantic
 semantic/src
 semantic/tasks
 semantic/gulpfile.js

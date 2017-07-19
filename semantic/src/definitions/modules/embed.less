@@ -8,12 +8,13 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
-@type: 'module';
-@element: 'embed';
+@type    : 'module';
+@element : 'embed';
 
 @import (multiple) '../../theme.config';
 
@@ -84,7 +85,6 @@
   height: 100%;
   z-index: 2;
 }
-
 .ui.embed > .icon:after {
   position: absolute;
   top: 0%;
@@ -97,7 +97,6 @@
   opacity: @placeholderBackgroundOpacity;
   transition: @placeholderBackgroundTransition;
 }
-
 .ui.embed > .icon:before {
   position: absolute;
   top: 50%;
@@ -124,7 +123,6 @@
   background: @hoverPlaceholderBackground;
   opacity: @hoverPlaceholderBackgroundOpacity;
 }
-
 .ui.embed .icon:hover:before {
   color: @hoverIconColor;
 }
@@ -137,12 +135,12 @@
 .ui.active.embed > .placeholder {
   display: none;
 }
-
 .ui.active.embed > .embed {
   display: block;
 }
 
 .loadUIOverrides();
+
 
 /*******************************
           Variations
@@ -151,15 +149,12 @@
 .ui.square.embed {
   padding-bottom: @squareRatio;
 }
-
 .ui[class*="4:3"].embed {
   padding-bottom: @standardRatio;
 }
-
 .ui[class*="16:9"].embed {
   padding-bottom: @widescreenRatio;
 }
-
 .ui[class*="21:9"].embed {
   padding-bottom: @ultraWidescreenRatio;
 }

@@ -8,12 +8,13 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
-@type: 'module';
-@element: 'nag';
+@type    : 'module';
+@element : 'nag';
 
 @import (multiple) '../../theme.config';
 
@@ -57,6 +58,7 @@ a.ui.nag {
   color: @titleColor;
 }
 
+
 .ui.nag > .close.icon {
   cursor: pointer;
   opacity: @closeOpacity;
@@ -72,6 +74,8 @@ a.ui.nag {
   transition: @closeTransition;
 }
 
+
+
 /*******************************
              States
 *******************************/
@@ -86,9 +90,11 @@ a.ui.nag {
   opacity: @closeHoverOpacity;
 }
 
+
 /*******************************
            Variations
 *******************************/
+
 
 /*--------------
      Static
@@ -127,13 +133,13 @@ a.ui.nag {
   background-color: @invertedBackground;
   color: @darkTextColor;
 }
-
 .ui.inverted.nags .nag .close,
 .ui.inverted.nags .nag .title,
 .ui.inverted.nag .close,
 .ui.inverted.nag .title {
   color: @lightTextColor;
 }
+
 
 /*******************************
            Groups
@@ -142,11 +148,9 @@ a.ui.nag {
 .ui.nags .nag {
   border-radius: @groupedBorderRadius !important;
 }
-
 .ui.nags .nag:last-child {
   border-radius: @topBorderRadius;
 }
-
 .ui.bottom.nags .nag:last-child {
   border-radius: @bottomBorderRadius;
 }

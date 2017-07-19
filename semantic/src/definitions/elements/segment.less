@@ -12,8 +12,8 @@
             Theme
 *******************************/
 
-@type: 'element';
-@element: 'segment';
+@type    : 'element';
+@element : 'segment';
 
 @import (multiple) '../../theme.config';
 
@@ -34,10 +34,10 @@
 .ui.segment:first-child {
   margin-top: 0em;
 }
-
 .ui.segment:last-child {
   margin-bottom: 0em;
 }
+
 
 /* Vertical */
 .ui.vertical.segment {
@@ -51,10 +51,10 @@
   border: none;
   border-bottom: @borderWidth solid @borderColor;
 }
-
 .ui.vertical.segment:last-child {
   border-bottom: none;
 }
+
 
 /*-------------------
     Loose Coupling
@@ -70,17 +70,14 @@
   border-top-left-radius: 0em;
   border-top-right-radius: 0em;
 }
-
 .ui[class*="top attached"].segment > [class*="bottom attached"].label {
   border-bottom-left-radius: 0em;
   border-bottom-right-radius: 0em;
 }
-
 .ui.attached.segment:not(.top):not(.bottom) > [class*="top attached"].label {
   border-top-left-radius: 0em;
   border-top-right-radius: 0em;
 }
-
 .ui.attached.segment:not(.top):not(.bottom) > [class*="bottom attached"].label {
   border-bottom-left-radius: 0em;
   border-bottom-right-radius: 0em;
@@ -93,7 +90,6 @@
   padding-top: @pageGridMargin;
   padding-bottom: @pageGridMargin;
 }
-
 .ui.grid.segment {
   margin: @margin;
   border-radius: @borderRadius;
@@ -105,10 +101,10 @@
   border: @border;
   box-shadow: @boxShadow;
 }
-
 .ui[class*="very basic"].table.segment {
   padding: @padding;
 }
+
 
 /*******************************
              Types
@@ -124,15 +120,12 @@
   box-shadow: @piledBoxShadow;
   z-index: @piledZIndex;
 }
-
 .ui.piled.segment:first-child {
   margin-top: 0em;
 }
-
 .ui.piled.segment:last-child {
   margin-bottom: 0em;
 }
-
 .ui.piled.segments:after,
 .ui.piled.segments:before,
 .ui.piled.segment:after,
@@ -148,14 +141,12 @@
   border: @piledBorder;
   box-shadow: @piledBoxShadow;
 }
-
 .ui.piled.segments:before,
 .ui.piled.segment:before {
   transform: rotate(-@piledDegrees);
   top: 0;
   z-index: -2;
 }
-
 .ui.piled.segments:after,
 .ui.piled.segment:after {
   transform: rotate(@piledDegrees);
@@ -168,16 +159,13 @@
   margin-top: @piledMargin;
   margin-bottom: 0em;
 }
-
 .ui.piled.segment[class*="top attached"]:first-child {
   margin-top: 0em;
 }
-
 .ui.piled.segment[class*="bottom attached"] {
   margin-top: 0em;
   margin-bottom: @piledMargin;
 }
-
 .ui.piled.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
 }
@@ -189,7 +177,6 @@
 .ui.stacked.segment {
   padding-bottom: @stackedPadding;
 }
-
 .ui.stacked.segments:before,
 .ui.stacked.segments:after,
 .ui.stacked.segment:before,
@@ -206,7 +193,6 @@
   height: @stackedHeight;
   visibility: visible;
 }
-
 .ui.stacked.segments:before,
 .ui.stacked.segment:before {
   display: none;
@@ -259,7 +245,6 @@
 .ui.compact.segments {
   display: inline-flex;
 }
-
 .ui.compact.segments .segment,
 .ui.segments .compact.segment {
   display: block;
@@ -287,6 +272,7 @@
   box-shadow: @raisedBoxShadow;
 }
 
+
 /*******************************
             Groups
 *******************************/
@@ -300,14 +286,13 @@
   box-shadow: @groupedBoxShadow;
   border-radius: @groupedBorderRadius;
 }
-
 .ui.segments:first-child {
   margin-top: 0em;
 }
-
 .ui.segments:last-child {
   margin-bottom: 0em;
 }
+
 
 /* Nested Segment */
 .ui.segments > .segment {
@@ -347,16 +332,15 @@
   border-radius: @borderRadius;
 }
 
+
 /* Nested Group */
 .ui.segments > .ui.segments {
   border-top: @groupedSegmentDivider;
   margin: @nestedGroupMargin;
 }
-
 .ui.segments > .segments:first-child {
   border-top: none;
 }
-
 .ui.segments > .segment + .segments:not(.horizontal) {
   margin-top: 0em;
 }
@@ -402,10 +386,10 @@
 .ui.segments > .horizontal.segments:first-child {
   border-top: none;
 }
-
 .ui.horizontal.segments > .segment:first-child {
   border-left: none;
 }
+
 
 /*******************************
             States
@@ -432,7 +416,6 @@
   color: transparent !important;
   transition: all 0s linear;
 }
-
 .ui.loading.segment:before {
   position: absolute;
   content: '';
@@ -444,7 +427,6 @@
   border-radius: @borderRadius;
   z-index: @loaderDimmerZIndex;
 }
-
 .ui.loading.segment:after {
   position: absolute;
   content: '';
@@ -478,9 +460,11 @@
   }
 }
 
+
 /*******************************
            Variations
 *******************************/
+
 
 /*-------------------
        Basic
@@ -511,9 +495,8 @@
 
 /* Red */
 .ui.red.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @red;
+  border-top: @coloredBorderSize solid @red !important;
 }
-
 .ui.inverted.red.segment {
   background-color: @red !important;
   color: @white !important;
@@ -521,9 +504,8 @@
 
 /* Orange */
 .ui.orange.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @orange;
+  border-top: @coloredBorderSize solid @orange !important;
 }
-
 .ui.inverted.orange.segment {
   background-color: @orange !important;
   color: @white !important;
@@ -531,9 +513,8 @@
 
 /* Yellow */
 .ui.yellow.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @yellow;
+  border-top: @coloredBorderSize solid @yellow !important;
 }
-
 .ui.inverted.yellow.segment {
   background-color: @yellow !important;
   color: @white !important;
@@ -541,9 +522,8 @@
 
 /* Olive */
 .ui.olive.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @olive;
+  border-top: @coloredBorderSize solid @olive !important;
 }
-
 .ui.inverted.olive.segment {
   background-color: @olive !important;
   color: @white !important;
@@ -551,9 +531,8 @@
 
 /* Green */
 .ui.green.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @green;
+  border-top: @coloredBorderSize solid @green !important;
 }
-
 .ui.inverted.green.segment {
   background-color: @green !important;
   color: @white !important;
@@ -561,9 +540,8 @@
 
 /* Teal */
 .ui.teal.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @teal;
+  border-top: @coloredBorderSize solid @teal !important;
 }
-
 .ui.inverted.teal.segment {
   background-color: @teal !important;
   color: @white !important;
@@ -571,9 +549,8 @@
 
 /* Blue */
 .ui.blue.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @blue;
+  border-top: @coloredBorderSize solid @blue !important;
 }
-
 .ui.inverted.blue.segment {
   background-color: @blue !important;
   color: @white !important;
@@ -581,9 +558,8 @@
 
 /* Violet */
 .ui.violet.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @violet;
+  border-top: @coloredBorderSize solid @violet !important;
 }
-
 .ui.inverted.violet.segment {
   background-color: @violet !important;
   color: @white !important;
@@ -591,9 +567,8 @@
 
 /* Purple */
 .ui.purple.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @purple;
+  border-top: @coloredBorderSize solid @purple !important;
 }
-
 .ui.inverted.purple.segment {
   background-color: @purple !important;
   color: @white !important;
@@ -601,9 +576,8 @@
 
 /* Pink */
 .ui.pink.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @pink;
+  border-top: @coloredBorderSize solid @pink !important;
 }
-
 .ui.inverted.pink.segment {
   background-color: @pink !important;
   color: @white !important;
@@ -611,9 +585,8 @@
 
 /* Brown */
 .ui.brown.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @brown;
+  border-top: @coloredBorderSize solid @brown !important;
 }
-
 .ui.inverted.brown.segment {
   background-color: @brown !important;
   color: @white !important;
@@ -621,9 +594,8 @@
 
 /* Grey */
 .ui.grey.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @grey;
+  border-top: @coloredBorderSize solid @grey !important;
 }
-
 .ui.inverted.grey.segment {
   background-color: @grey !important;
   color: @white !important;
@@ -631,9 +603,8 @@
 
 /* Black */
 .ui.black.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @black;
+  border-top: @coloredBorderSize solid @black !important;
 }
-
 .ui.inverted.black.segment {
   background-color: @black !important;
   color: @white !important;
@@ -646,11 +617,9 @@
 .ui[class*="left aligned"].segment {
   text-align: left;
 }
-
 .ui[class*="right aligned"].segment {
   text-align: right;
 }
-
 .ui[class*="center aligned"].segment {
   text-align: center;
 }
@@ -664,11 +633,11 @@
   float: left;
   margin-right: @floatedDistance;
 }
-
 .ui[class*="right floated"].segment {
   float: right;
   margin-left: @floatedDistance;
 }
+
 
 /*-------------------
       Inverted
@@ -678,7 +647,6 @@
   border: none;
   box-shadow: none;
 }
-
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
   background: @invertedBackground;
@@ -689,7 +657,6 @@
 .ui.inverted.segment .segment {
   color: @textColor;
 }
-
 .ui.inverted.segment .inverted.segment {
   color: @invertedTextColor;
 }
@@ -708,7 +675,6 @@
   background: @secondaryBackground;
   color: @secondaryColor;
 }
-
 .ui.secondary.inverted.segment {
   background: @secondaryInvertedBackground;
   color: @secondaryInvertedColor;
@@ -719,11 +685,11 @@
   background: @tertiaryBackground;
   color: @tertiaryColor;
 }
-
 .ui.tertiary.inverted.segment {
   background: @tertiaryInvertedBackground;
   color: @tertiaryInvertedColor;
 }
+
 
 /*-------------------
       Attached
@@ -740,7 +706,6 @@
   box-shadow: @attachedBoxShadow;
   border: @attachedBorder;
 }
-
 .ui.attached:not(.message) + .ui.attached.segment:not(.top) {
   border-top: none;
 }
@@ -753,7 +718,6 @@
   margin-top: @verticalMargin;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
-
 .ui.segment[class*="top attached"]:first-child {
   margin-top: 0em;
 }
@@ -767,7 +731,6 @@
   box-shadow: @attachedBottomBoxShadow;
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
-
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
 }
@@ -780,37 +743,30 @@
 .ui.mini.segment {
   font-size: @mini;
 }
-
 .ui.tiny.segments .segment,
 .ui.tiny.segment {
   font-size: @tiny;
 }
-
 .ui.small.segments .segment,
 .ui.small.segment {
   font-size: @small;
 }
-
 .ui.segments .segment,
 .ui.segment {
   font-size: @medium;
 }
-
 .ui.large.segments .segment,
 .ui.large.segment {
   font-size: @large;
 }
-
 .ui.big.segments .segment,
 .ui.big.segment {
   font-size: @big;
 }
-
 .ui.huge.segments .segment,
 .ui.huge.segment {
   font-size: @huge;
 }
-
 .ui.massive.segments .segment,
 .ui.massive.segment {
   font-size: @massive;

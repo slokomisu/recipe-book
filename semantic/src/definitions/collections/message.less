@@ -12,8 +12,8 @@
             Theme
 *******************************/
 
-@type: 'collection';
-@element: 'message';
+@type    : 'collection';
+@element : 'message';
 
 @import (multiple) '../../theme.config';
 
@@ -37,10 +37,10 @@
 .ui.message:first-child {
   margin-top: 0em;
 }
-
 .ui.message:last-child {
   margin-bottom: 0em;
 }
+
 
 /*--------------
      Content
@@ -64,15 +64,12 @@
   opacity: @messageTextOpacity;
   margin: @messageParagraphMargin 0em;
 }
-
 .ui.message p:first-child {
   margin-top: 0em;
 }
-
 .ui.message p:last-child {
   margin-bottom: 0em;
 }
-
 .ui.message .header + p {
   margin-top: @headerParagraphDistance;
 }
@@ -85,22 +82,18 @@
   list-style-position: @listStylePosition;
   margin: @listMargin 0em 0em;
 }
-
 .ui.message .list:not(.ui):first-child {
   margin-top: 0em;
 }
-
 .ui.message .list:not(.ui):last-child {
   margin-bottom: 0em;
 }
-
 .ui.message .list:not(.ui) li {
   position: relative;
   list-style-type: none;
   margin: 0em 0em @listItemMargin @listItemIndent;
   padding: 0em;
 }
-
 .ui.message .list:not(.ui) li:before {
   position: absolute;
   content: '•';
@@ -108,10 +101,10 @@
   height: 100%;
   vertical-align: baseline;
 }
-
 .ui.message .list:not(.ui) li:last-child {
   margin-bottom: 0em;
 }
+
 
 /* Icon */
 .ui.message > .icon {
@@ -128,7 +121,6 @@
   opacity: @closeOpacity;
   transition: @closeTransition;
 }
-
 .ui.message > .close.icon:hover {
   opacity: 1;
 }
@@ -137,7 +129,6 @@
 .ui.message > :first-child {
   margin-top: 0em;
 }
-
 .ui.message > :last-child {
   margin-bottom: 0em;
 }
@@ -174,6 +165,7 @@
   display: none;
 }
 
+
 /*******************************
             Variations
 *******************************/
@@ -185,6 +177,10 @@
 .ui.compact.message {
   display: inline-block;
 }
+.ui.compact.icon.message {
+  display: inline-flex;
+}
+
 
 /*--------------
     Attached
@@ -197,25 +193,22 @@
   margin-left: @attachedXOffset;
   margin-right: @attachedXOffset;
 }
-
 .ui.attached + .ui.attached.message:not(.top):not(.bottom) {
   margin-top: @attachedYOffset;
   border-radius: 0em;
 }
-
 .ui.bottom.attached.message {
   margin-top: @attachedYOffset;
   border-radius: 0em 0em @borderRadius @borderRadius;
   box-shadow: @attachedBottomBoxShadow;
 }
-
 .ui.bottom.attached.message:not(:last-child) {
   margin-bottom: @verticalMargin;
 }
-
 .ui.attached.icon.message {
   width: auto;
 }
+
 
 /*--------------
       Icon
@@ -226,7 +219,6 @@
   width: 100%;
   align-items: center;
 }
-
 .ui.icon.message > .icon:not(.close) {
   display: block;
   flex: 0 0 auto;
@@ -236,17 +228,16 @@
   font-size: @iconSize;
   opacity: @iconOpacity;
 }
-
 .ui.icon.message > .content {
   display: block;
   flex: 1 1 auto;
   vertical-align: @iconVerticalAlign;
 }
 
+
 .ui.icon.message .icon:not(.close) + .content {
   padding-left: @iconContentDistance;
 }
-
 .ui.icon.message .circular.icon {
   width: 1em;
 }
@@ -258,6 +249,7 @@
 .ui.floating.message {
   box-shadow: @floatingBoxShadow;
 }
+
 
 /*--------------
      Colors
@@ -277,12 +269,10 @@
   background-color: @positiveBackgroundColor;
   color: @positiveTextColor;
 }
-
 .ui.positive.message,
 .ui.attached.positive.message {
   box-shadow: @positiveBoxShadow;
 }
-
 .ui.positive.message .header {
   color: @positiveHeaderColor;
 }
@@ -292,12 +282,10 @@
   background-color: @negativeBackgroundColor;
   color: @negativeTextColor;
 }
-
 .ui.negative.message,
 .ui.attached.negative.message {
   box-shadow: @negativeBoxShadow;
 }
-
 .ui.negative.message .header {
   color: @negativeHeaderColor;
 }
@@ -307,12 +295,10 @@
   background-color: @infoBackgroundColor;
   color: @infoTextColor;
 }
-
 .ui.info.message,
 .ui.attached.info.message {
   box-shadow: @infoBoxShadow;
 }
-
 .ui.info.message .header {
   color: @infoHeaderColor;
 }
@@ -322,12 +308,10 @@
   background-color: @warningBackgroundColor;
   color: @warningTextColor;
 }
-
 .ui.warning.message,
 .ui.attached.warning.message {
   box-shadow: @warningBoxShadow;
 }
-
 .ui.warning.message .header {
   color: @warningHeaderColor;
 }
@@ -337,12 +321,10 @@
   background-color: @errorBackgroundColor;
   color: @errorTextColor;
 }
-
 .ui.error.message,
 .ui.attached.error.message {
   box-shadow: @errorBoxShadow;
 }
-
 .ui.error.message .header {
   color: @errorHeaderColor;
 }
@@ -352,15 +334,14 @@
   background-color: @successBackgroundColor;
   color: @successTextColor;
 }
-
 .ui.success.message,
 .ui.attached.success.message {
   box-shadow: @successBoxShadow;
 }
-
 .ui.success.message .header {
   color: @successHeaderColor;
 }
+
 
 /* Colors */
 .ui.inverted.message,
@@ -374,7 +355,6 @@
   color: @redTextColor;
   box-shadow: @redBoxShadow;
 }
-
 .ui.red.message .header {
   color: @redHeaderColor;
 }
@@ -384,7 +364,6 @@
   color: @orangeTextColor;
   box-shadow: @orangeBoxShadow;
 }
-
 .ui.orange.message .header {
   color: @orangeHeaderColor;
 }
@@ -394,7 +373,6 @@
   color: @yellowTextColor;
   box-shadow: @yellowBoxShadow;
 }
-
 .ui.yellow.message .header {
   color: @yellowHeaderColor;
 }
@@ -404,7 +382,6 @@
   color: @oliveTextColor;
   box-shadow: @oliveBoxShadow;
 }
-
 .ui.olive.message .header {
   color: @oliveHeaderColor;
 }
@@ -414,7 +391,6 @@
   color: @greenTextColor;
   box-shadow: @greenBoxShadow;
 }
-
 .ui.green.message .header {
   color: @greenHeaderColor;
 }
@@ -424,7 +400,6 @@
   color: @tealTextColor;
   box-shadow: @tealBoxShadow;
 }
-
 .ui.teal.message .header {
   color: @tealHeaderColor;
 }
@@ -434,7 +409,6 @@
   color: @blueTextColor;
   box-shadow: @blueBoxShadow;
 }
-
 .ui.blue.message .header {
   color: @blueHeaderColor;
 }
@@ -444,7 +418,6 @@
   color: @violetTextColor;
   box-shadow: @violetBoxShadow;
 }
-
 .ui.violet.message .header {
   color: @violetHeaderColor;
 }
@@ -454,7 +427,6 @@
   color: @purpleTextColor;
   box-shadow: @purpleBoxShadow;
 }
-
 .ui.purple.message .header {
   color: @purpleHeaderColor;
 }
@@ -464,7 +436,6 @@
   color: @pinkTextColor;
   box-shadow: @pinkBoxShadow;
 }
-
 .ui.pink.message .header {
   color: @pinkHeaderColor;
 }
@@ -474,7 +445,6 @@
   color: @brownTextColor;
   box-shadow: @brownBoxShadow;
 }
-
 .ui.brown.message .header {
   color: @brownHeaderColor;
 }
@@ -486,31 +456,24 @@
 .ui.mini.message {
   font-size: @relativeMini;
 }
-
 .ui.tiny.message {
   font-size: @relativeTiny;
 }
-
 .ui.small.message {
   font-size: @relativeSmall;
 }
-
 .ui.message {
   font-size: @relativeMedium;
 }
-
 .ui.large.message {
   font-size: @relativeLarge;
 }
-
 .ui.big.message {
   font-size: @relativeBig;
 }
-
 .ui.huge.message {
   font-size: @relativeHuge;
 }
-
 .ui.massive.message {
   font-size: @relativeMassive;
 }
