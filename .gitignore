@@ -20,10 +20,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .idea
-.idea/
-
-
-/semantic
-semantic/src
-semantic/tasks
-semantic/gulpfile.js
+/semantic/
