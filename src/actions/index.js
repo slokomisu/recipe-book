@@ -41,8 +41,8 @@ export const fetchRecipes = () => {
     dispatch(startFetchingRecipes())
     firebase.database().ref('/recipes')
       .on('value', (snapshot) => {
-        const recipes = snapshot.val() || []
-        dispatch(receiveRecipes(recipes))
+        const recipes = Object.values(snapshot.val());
+        dispatch(receiveRecipes(recipes));
       })
   }
 }
@@ -131,15 +131,16 @@ function recipeDeleteError () {
 
 export const createRecipe = (newRecipe) => {
   return function (dispatch) {
-    dispatch(recipeCreateStart())
-    const recipesRef = firebase.database().ref('/recipes');
-    recipesRef.push(newRecipe)
+    const newRecipeRef = firebase.database().ref('/recipes').push()
+    newRecipe.id = newRecipeRef.key
+    newRecipeRef.set(newRecipe)
       .then(() => {
         dispatch(recipeCreated(newRecipe));
+        dispatch(push('./'))
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch(recipeCreateError(err));
-      })
+      });
   }
 }
 

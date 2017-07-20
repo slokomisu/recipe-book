@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Container, Button } from 'semantic-ui-react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions/index'
 
@@ -9,6 +9,7 @@ import RecipeDetail from './components/RecipeDetail'
 import Loading from '../shared/Loading'
 import ErrorMessage from '../shared/ErrorMessage'
 import RecipeEdit from './components/RecipeEdit'
+import RecipeNew from './components/RecipeNew'
 
 class RecipePage extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class RecipePage extends Component {
           <Grid.Row>
             <Grid.Column>
               <Container>
-              <Button positive>
+              <Button as={Link} to="/recipes/new" positive>
                 Add Recipe
               </Button>
               <RecipeList recipes={recipes}/>
@@ -47,6 +48,7 @@ class RecipePage extends Component {
             </Grid.Column>
             <Grid.Column>
               <Switch key={locationKey}>
+                <Route path="/recipes/new" component={RecipeNew} />
                 <Route path="/recipes/:id/edit" component={RecipeEdit}/>
                 <Route path="/recipes/:id" component={RecipeDetail}/>
               </Switch>

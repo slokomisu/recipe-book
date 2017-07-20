@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Container, Header } from 'semantic-ui-react'
-import RecipeEditForm from './RecipeEditForm'
-import { updateRecipe, fetchRecipe } from '../../actions/index'
+import RecipeNewForm from './RecipeNewForm';
+import { createRecipe, fetchRecipe } from '../../actions/index'
 import { connect } from 'react-redux'
 
 class RecipeNew extends Component {
@@ -12,7 +12,7 @@ class RecipeNew extends Component {
   }
 
   handleSubmit = (values) => {
-    this.props.updateRecipe(values);
+    this.props.createRecipe(values);
   }
 
   render () {
@@ -21,7 +21,7 @@ class RecipeNew extends Component {
         <Header >
           New Recipe
         </Header>
-        <RecipeEditForm onSubmit={this.handleSubmit} selectedRecipe={this.props.selectedRecipe}/>
+        <RecipeNewForm onSubmit={this.handleSubmit}/>
       </Container>
     )
   }
@@ -37,4 +37,4 @@ function mapStateToProps (state) {
 RecipeNew.propTypes = {}
 RecipeNew.defaultProps = {}
 
-export default connect(mapStateToProps, { updateRecipe, fetchRecipe })(RecipeNew);
+export default connect(mapStateToProps, { createRecipe, fetchRecipe })(RecipeNew);
