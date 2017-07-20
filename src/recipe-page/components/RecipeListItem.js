@@ -23,7 +23,7 @@ RecipeListItem.propTypes = {
     imagePath: propTypes.string.isRequired,
     description: propTypes.string.isRequired,
     ingredients: propTypes.array.isRequired,
-    id: propTypes.number.isRequired,
+    id: propTypes.string.isRequired,
   }).isRequired
 }
 
