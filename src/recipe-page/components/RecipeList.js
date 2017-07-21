@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Button, Container, Item } from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react'
 import RecipeListItem from './RecipeListItem'
 import propTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import { map } from 'lodash'
 
 class RecipeList extends Component {
@@ -21,7 +20,7 @@ class RecipeList extends Component {
 }
 
 RecipeList.propTypes = {
-  recipes: propTypes.object.isRequired
+  recipes: propTypes.array.isRequired
 }
 
 export default RecipeList

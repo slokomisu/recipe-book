@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { Container, Button, Form, Divider, Image } from 'semantic-ui-react'
 import { reduxForm, Field, FieldArray, formValueSelector } from 'redux-form'
 import { goBack } from 'react-router-redux'
-import { fetchRecipe } from '../../actions/index'
-import Loading from '../../shared/Loading'
 import SemanticUiField from '../../shared/SemanticUiField'
 
 class RecipeNewForm extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchRecipe, deleteRecipe } from '../../actions/index'
+import actions from '../../actions/recipeActions'
 import Loading from '../../shared/Loading'
 import { Button, Card, Image } from 'semantic-ui-react'
 import IngredientList from './IngredientList'
@@ -67,5 +67,5 @@ function mapStateToProps ({recipes: {selectedRecipe}}) {
   }
 }
 
-export default connect(mapStateToProps, {fetchRecipe, deleteRecipe})(RecipeDetail)
+export default connect(mapStateToProps, {fetchRecipe: actions.fetchRecipes, deleteRecipe: actions.deleteRecipe})(RecipeDetail)
 

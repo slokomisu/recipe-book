@@ -2020,7 +2020,7 @@
         // allow dashes in card
         cardNumber = cardNumber.replace(/[\-]/g, '')
 
-        // verify card types
+        // verify card actionTypes
         if (requiredTypes) {
           $.each(requiredTypes, function (index, type) {
             // verify each card type

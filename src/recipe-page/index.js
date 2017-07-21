@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Grid, Container, Button } from 'semantic-ui-react'
 import { Route, Switch, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchRecipes } from '../actions/index'
-
+import actions from '../actions/recipeActions';
 import RecipeList from './components/RecipeList'
 import RecipeDetail from './components/RecipeDetail'
 import Loading from '../shared/Loading'
@@ -12,9 +11,7 @@ import RecipeEdit from './components/RecipeEdit'
 import RecipeNew from './components/RecipeNew'
 
 class RecipePage extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   componentWillMount () {
     this.props.fetchRecipes()
@@ -60,15 +57,15 @@ class RecipePage extends Component {
   }
 }
 
-function mapStateToProps ({recipes: {recipes, isFetching, fetchFailed}, router}) {
+function mapStateToProps (state) {
   return {
-    recipes,
-    isFetching,
-    fetchFailed,
-    router
+    recipes: state.recipes,
+    router: state.router
   }
 }
 
-export default connect(mapStateToProps, {fetchRecipes})(RecipePage)
+export default connect(mapStateToProps, {
+  fetchRecipes: actions.fetchRecipes
+})(RecipePage)
 
 
